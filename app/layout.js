@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Nav from "./components/Nav";
+import NavbarMiddleware from "./components/NavbarMiddl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* This navbar is protected using session */}
+        {/* <Nav /> */}
+
+        {/* This Middleware navbar is protected using middleware */}
+        <NavbarMiddleware />
+        {children}
+      </body>
     </html>
   );
 }
